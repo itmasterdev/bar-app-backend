@@ -1,15 +1,12 @@
 const Event = require('../models/Event');
 const asyncHandler = require('express-async-handler');
-const generateUniqueId = require('../utils/generateUniqueId');
 const mongoose = require('mongoose');
 
 exports.createEvent = asyncHandler(async (req, res) => {
     try {
-        console.log(req.body)
         const event = new Event({
             ...req.body,
             date: new Date(req.body.date),
-            participants: [],
             creatorId: req.body.creatorId,
             uniqueId: Math.floor(10000000 + Math.random() * 90000000),
         });
