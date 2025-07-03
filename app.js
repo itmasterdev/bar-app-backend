@@ -19,6 +19,6 @@ app.use('/api/debug', debugRoutes);
 app.use('/api/chats', chatRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/users', userRoutes);
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/api', require('./routes/backend_upload_route'));
+app.use('/uploads', express.static('public/uploads'));
 module.exports = app;
